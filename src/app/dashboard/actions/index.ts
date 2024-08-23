@@ -56,7 +56,7 @@ export async function runScraper() {
   // Open a new page
   const page = await browser.newPage();
 
-  const searchPhrase = "mate cup"; // Set your search phrase here
+  const searchPhrase = "product"; // Set your search phrase here
   const scrapeToPage = 1; // Set the desired page to scrape to
 
   console.log("Search phrase:", searchPhrase); // Log searchPhrase
@@ -116,8 +116,7 @@ export async function runScraper() {
           const imageElement = card
             .querySelector(".s-image")
             ?.getAttribute("src");
-          const imageSrc = imageElement ? imageElement : "N/A";
-          // Price
+          const imageSrc = imageElement;
           const priceElement = card.querySelector(".a-price .a-offscreen");
           const price = priceElement ? priceElement.textContent : "N/A";
 

@@ -52,9 +52,9 @@ export default async function Page({
   console.log(params.id);
 
   const { data: products } = await readProductById(params.id);
-  const product: Product = products[0];
+  const product: Product | undefined = products?.[0];
   console.log(product);
-  console.log(product.productName);
+  console.log(product?.productName);
   return (
     <>
       <SideNav />
@@ -69,7 +69,7 @@ export default async function Page({
                   <div className="my-20 mx-auto">
                     <Card className="max-w-80 max-h-80">
                       <Image
-                        src={product.imageSrc}
+                        src={product?.imageSrc || ""}
                         alt="product image"
                         width={140}
                         height={140}
@@ -79,9 +79,9 @@ export default async function Page({
                       <div className="mx-auto h-10 w-60 rounded-lg mt-20">
                         <Card className="min-w-40 min-h-40">
                           <h1 className="px-2 py-2 font-semibold">
-                            {product.productName}
+                            {product?.productName}
                           </h1>
-                          <h1>{product.price}</h1>
+                          <h1>{product?.price}</h1>
                         </Card>
                       </div>
                     </div>
